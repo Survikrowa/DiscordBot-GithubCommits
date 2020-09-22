@@ -3,10 +3,9 @@ import type { Client, TextChannel } from "discord.js";
 
 export const webhookRouter = Router();
 
-webhookRouter.post("/payload", async (req, res) => {
-  if (
-    req.headers["x-hub-signature"] !== process.env.WEBHOOK_AUTHORIZATION_SHA
-  ) {
+webhookRouter.post("/payload/:secret", async (req, res) => {
+  console.log(req.params);
+  if (req.params.secret !== process.env.GITHUB_SECRET) {
     return res.status(401).json({ message: "Unauthorized" });
   }
   const client: Client = req.body.client;
