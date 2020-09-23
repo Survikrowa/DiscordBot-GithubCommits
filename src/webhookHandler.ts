@@ -4,7 +4,6 @@ import type { Client, TextChannel } from "discord.js";
 export const webhookRouter = Router();
 
 webhookRouter.post("/payload/:secret", async (req, res) => {
-  console.log(req.params);
   if (req.params.secret !== process.env.GITHUB_SECRET) {
     return res.status(401).json({ message: "Unauthorized" });
   }
