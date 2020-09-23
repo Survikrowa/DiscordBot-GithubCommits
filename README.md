@@ -32,7 +32,7 @@ DISCORD_CHANNEL_ID= //And here right-click your discord channel where u want to 
 
 ### Option 2 Hosting ( heroku for this example)
 
-1. Run npm install in the project directory
+1. Run npm install in the project directory then npm run build
 2. In the dist folder create new Procfile file
 3. Paste worker: node index.js inside of the Procfile
 4. Now choose one strategy to deploy your app from here: https://blog.heroku.com/six-strategies-deploy-to-heroku
